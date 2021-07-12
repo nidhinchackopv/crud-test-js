@@ -4,24 +4,31 @@ import * as ReactDom from 'react-dom'
 import ProdutEdit from '../admin/ProdutEdit'
 import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme';
-import * as APIEditProd from '../admin/ProdutEdit';
+import * as APIEdit from '../admin/services/editprod';
 
 
-// jest.mock('../admin/ProdutEdit');
+// let state={title:"hello",body:"world"}
+jest.mock('../admin/services/editprod');
+it('fetching', async () => {
+  APIEdit.editProd.mockResolvedValueOnce({ok : true});
+  render(<ProdutEdit />);
+  const input = screen.getByTestId('pro-input');
+  fireEvent.change(input, { 'target' : { 'value' : 'hello' }});
+  const textarea = screen.getByTestId('pro-textarea');
+  fireEvent.change(textarea, { 'target' : { 'value' : 'world' }});
+  const button = screen.getByTestId('submit');
+  fireEvent.click(button);
+  expect(APIEdit.editProd).toHaveBeenCalledTimes(1)
+  // expect(APIEdit.editProd).toHaveBeenCalledWith(1 , state)
+})
 
-// it('fetching', async () => {
-//   APIEditProd.ProdutEdit.hello.mockResolvedValueOnce({ok : true});
-//   render(<ProdutEdit />);
-//   const input = screen.getByTestId('pro-input');
-//   fireEvent.change(input, { 'target' : { 'value' : 'textone' }});
-//   const textarea = screen.getByTestId('pro-textarea');
-//   fireEvent.change(textarea, { 'target' : { 'value' : 'texttwo' }});
-//   const button = screen.getByTestId('submit');
-//   fireEvent.click(button);
-//   expect(APIEditProd.ProdutEdit.hello).toHaveBeenCalledTimes(1)
-//   expect(APIEditProd.ProdutEdit.hello).toHaveBeenCalledWith("textone")
-//   expect(APIEditProd.ProdutEdit.hello).toHaveBeenCalledWith("texttwo")
-// })
+jest.mock('../admin/services/editprod');
+
+it('fetching', async () => { 
+  APIEdit.editProdOne.mockResolvedValueOnce({ok : true});
+  render(<ProdutEdit />);
+  expect(APIEdit.editProdOne).toHaveBeenCalledTimes(1)
+})
 
 
 it('can render the About page', () => {

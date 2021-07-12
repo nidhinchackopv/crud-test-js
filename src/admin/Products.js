@@ -25,8 +25,8 @@ const Products = (props) => {
 
             const data = await APIDelete.delData(id)
 
-            setProducts(data.filter((p) => p.id !== id ));
-
+            setProducts(products.filter((p) => p.id !== id ));
+            // window.location.reload()
         }
 
     }

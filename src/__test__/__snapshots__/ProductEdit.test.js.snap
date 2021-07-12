@@ -20,7 +20,6 @@ exports[`can render the About page 1`] = `
       <input
         className="ml-12 border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
         data-testid="pro-input"
-        defaultValue=""
         name="Title"
         onChange={[Function]}
         type="text"
@@ -38,7 +37,6 @@ exports[`can render the About page 1`] = `
     <textarea
       className="border border-gray-400 px-4 py-2 rounded w-full focus:outline-none focus:border-teal-400"
       data-testid="pro-textarea"
-      defaultValue=""
       name="body"
       onChange={[Function]}
     />
