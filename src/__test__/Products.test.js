@@ -18,14 +18,14 @@ it('fetching', async () => {
 
 jest.mock('../admin/services/delprod');
 
-it('fetching', async () => {
-  APIDelete.delData.mockResolvedValueOnce({ok : true});
-  render(<Products key = {"delete"}/>)
-  // expect(fireEvent.click(containerone.querySelector("[data-testid = 'delete']")))
-  const button = screen.findByTestId('delete')
-  fireEvent.click(button)
-  expect(APIDelete.delData).toHaveBeenCalledTimes(1)
-})
+// it('fetching', async () => {
+//   APIDelete.delData.mockResolvedValueOnce({ok : true});
+//   render(<Products key = {"delete"}/>)
+//   // expect(fireEvent.click(containerone.querySelector("[data-testid = 'delete']")))
+//   const button = screen.findByTestId('delete')
+//   fireEvent.click(button)
+//   expect(APIDelete.delData).toHaveBeenCalledTimes(1)
+// })
 
 
 describe("component test", () => {
